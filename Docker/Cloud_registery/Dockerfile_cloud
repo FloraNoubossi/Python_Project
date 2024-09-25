@@ -1,0 +1,6 @@
+# Utiliser une image de base (ici nginx:alpine)
+FROM nginx:alpine
+
+# Copier un fichier HTML simple dans le répertoire de nginx
+COPY ./index.html /usr/share/nginx/html/
+
