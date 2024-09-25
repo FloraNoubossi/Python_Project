@@ -352,6 +352,8 @@ if __name__ == "__main__":
    ```bash
    docker-compose down
    ```
+   ## Connexion à pgAdmin : http://localhost:5051/login?next=/
+   et à https://localhost/ 
 
 ![image](https://github.com/user-attachments/assets/b8a38b6a-7063-4ca6-a114-bca02fae5ce8)
 ![image](https://github.com/user-attachments/assets/8f21496a-11e1-49fd-815b-76aff1406ca5)
