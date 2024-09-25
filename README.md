@@ -360,3 +360,72 @@ if __name__ == "__main__":
 
 
 
+# Cloud registery
+
+# Pousser une image Docker sur Docker Hub
+
+## Étapes à suivre :
+
+### 1. Connexion à Docker Hub
+Tout d'abord, vous devez vous connecter à Docker Hub en utilisant la commande suivante dans votre terminal :
+
+```bash
+docker login -u <votre_nom_d'utilisateur>
+```
+
+Remplacez `<votre_nom_d'utilisateur>` par votre nom d'utilisateur Docker Hub. Vous serez invité à entrer votre mot de passe.
+
+### 2. Taguer votre image Docker
+Si l'image Docker que vous avez construite n'a pas encore été taguée, vous devez la taguer avec votre nom d'utilisateur Docker Hub et le nom du dépôt. Utilisez la commande suivante :
+
+```bash
+docker tag <nom_image_locale>:<tag> <votre_nom_d'utilisateur>/<nom_du_dépôt>:<tag>
+```
+
+Exemple :
+
+```bash
+docker tag simple-container:latest floranoubossi/simple-container:latest
+```
+
+### 3. Pousser l'image sur Docker Hub
+Une fois que l'image est taguée correctement, vous pouvez la pousser vers Docker Hub avec la commande suivante :
+
+```bash
+docker push <votre_nom_d'utilisateur>/<nom_du_dépôt>:<tag>
+```
+
+Exemple :
+
+```bash
+docker push floranoubossi/simple-container:latest
+```
+
+### 4. Vérifier sur Docker Hub
+Une fois l'image poussée, vous pouvez vous connecter à votre compte Docker Hub en ligne à l'adresse suivante :
+- https://hub.docker.com/
+
+Accédez à la section **Repositories** pour vérifier si l'image a bien été poussée. Vous devriez voir le dépôt **simple-container** avec le tag **latest**.
+
+---
+
+## Exemple de commandes :
+```bash
+docker login -u floranoubossi
+docker tag simple-container:latest floranoubossi/simple-container:latest
+docker push floranoubossi/simple-container:latest
+```
+
+## Conclusion :
+Ces étapes vous permettent de pousser une image Docker vers Docker Hub, de la rendre accessible à d'autres utilisateurs ou de l'utiliser dans d'autres environnements.
+
+## Vérification du push de l'image sur Docker Hub
+
+![image](https://github.com/user-attachments/assets/5acbe4da-9ac7-48c0-a331-dcd567d332dc)
+
+
+
+
+
+
+
