@@ -1,5 +1,9 @@
 
 #!/bin/bash
+#Téléchargement de l'image d'alpine
+docker pull alpine
+#Vérification des images
+docker images
 
 # Étape 1: Créer un réseau Docker
 docker network create mynetwork
