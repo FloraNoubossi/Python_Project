@@ -1,0 +1,20 @@
+# Utiliser une image officielle Python comme image de base
+FROM python:3.9
+
+# Définir le répertoire de travail dans le conteneur
+WORKDIR /app
+
+# Copier le fichier de dépendances dans le conteneur
+COPY requirements.txt .
+
+# Installer les dépendances Python (si le fichier requirements.txt existe)
+RUN pip install --no-cache-dir -r requirements.txt || echo "No requirements file found"
+
+# Copier le reste du code dans le conteneur
+COPY . .
+
+# Exposer le port 80 (si votre application utilise un serveur HTTP)
+EXPOSE 80
+
+# Commande pour exécuter l'application
+CMD ["python", "app.py"]

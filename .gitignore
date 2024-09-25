@@ -1,0 +1,12 @@
+# Ignorer les fichiers temporaires de Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignorer les fichiers de clé SSH
+Keyssh
+Keyssh.pub
+
+# Ignorer les fichiers temporaires de Docker
+*.log
+*.tmp
