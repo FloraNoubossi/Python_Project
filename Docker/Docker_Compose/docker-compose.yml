@@ -8,11 +8,15 @@ services:
       - .:/app
     depends_on:
       - redis-container
+    networks:
+      - mynetwork  # Assurez-vous que web et redis sont sur le même réseau
 
   redis-container:
     image: redis
     ports:
       - "6379:6379"
+    networks:
+      - mynetwork
 
   pgadmin:
     image: dpage/pgadmin4
@@ -21,4 +25,34 @@ services:
       PGADMIN_DEFAULT_PASSWORD: postgres
     ports:
       - "5051:80"
+    networks:
+      - db  # Corrected the indentation
+
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    networks:
+      - db
+      - mynetwork
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certs:/etc/ssl/certs
+    networks:
+      - mynetwork
+    depends_on:
+      - app
+    restart: always
+
+networks:
+  db:
+    driver: bridge
+  mynetwork:
+    driver: bridge
 
