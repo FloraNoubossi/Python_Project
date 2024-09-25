@@ -1,28 +1,31 @@
-name: FastAPI run 
+name: Python Application CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main  # Déclenchement du workflow sur push vers la branche principale
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main  # Déclenchement du workflow lors des pull requests vers la branche principale
 
 jobs:
-  fastapi-run:
-    runs-on: ubuntu-20.04
+  build:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.7'
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
 
-      - name: Install Backend Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r ./requirements.txt
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
 
-      - name: Start Backend Server
-        run: uvicorn main:app --reload &
+    - name: Run tests
+      run: |
+        pytest
+
