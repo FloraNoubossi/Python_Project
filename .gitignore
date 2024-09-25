@@ -7,6 +7,3 @@ __pycache__/
 Keyssh
 Keyssh.pub
 
-# Ignorer les fichiers temporaires de Docker
-*.log
-*.tmp
