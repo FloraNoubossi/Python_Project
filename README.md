@@ -139,6 +139,7 @@ Le projet inclut les fichiers suivants :
 
 Cette configuration permet de gérer une application Flask avec Redis et pgAdmin via Docker Compose. Il simplifie le déploiement et l'orchestration de plusieurs services pour un environnement de développement complet.
 
+
 # Docker avec HTTPS
 
 Ce projet montre comment configurer une application web Python Flask avec Redis, PgAdmin et Nginx à l'aide de Docker Compose, et comment sécuriser l'application avec HTTPS en utilisant un certificat SSL auto-signé.
@@ -352,9 +353,8 @@ if __name__ == "__main__":
    docker-compose down
    ```
 
-## Licence
-
-Ce projet est sous licence MIT.
+![image](https://github.com/user-attachments/assets/b8a38b6a-7063-4ca6-a114-bca02fae5ce8)
+![image](https://github.com/user-attachments/assets/8f21496a-11e1-49fd-815b-76aff1406ca5)
 
 
 
